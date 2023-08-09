@@ -60,6 +60,10 @@ describe('Cinema', function () {
     const actual = cinema.checkEveryFilmLength(cinema, 100);
     assert.strictEqual(actual, false);
   });
-  it('should be able to calculate total running time of all films');
+
+  it('should be able to calculate total running time of all films', function () {
+    const actual = cinema.runtimeOfAllFilms(cinema);
+    assert.strictEqual(actual, 622);
+  });
 
 });
