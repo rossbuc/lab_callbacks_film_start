@@ -47,12 +47,12 @@ describe('Cinema', function () {
   });
 
   it('should be able to check whether there are some films from a particular year', function () {
-    const actual = cinema.filterByYear(cinema, 2016);
+    const actual = cinema.someByYear(cinema, 2016);
     assert.strictEqual(actual, true);
   });
 
   it('should be able to check whether there are no films from a particular year', function () {
-    const actual = cinema.filterByYear(cinema, 2000);
+    const actual = cinema.someByYear(cinema, 2000);
     assert.strictEqual(actual, false);
   });
 
@@ -64,6 +64,11 @@ describe('Cinema', function () {
   it('should be able to calculate total running time of all films', function () {
     const actual = cinema.runtimeOfAllFilms(cinema);
     assert.strictEqual(actual, 622);
+  });
+
+  it('should be able to filter by year', function () {
+    const actual = cinema.filterByYear(cinema, 2017);
+    assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting]);
   });
 
 });

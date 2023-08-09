@@ -16,13 +16,10 @@ Cinema.prototype.findByTitle = function (cinema) {
 };
 
 Cinema.prototype.filterByGenre = function (cinema, genre) {
-  const filmsOfGenre = cinema.films.filter((film) => {
-    return film.genre == genre;
-  });
-  return filmsOfGenre;
+  return cinema.filterByProperty(cinema, "genre", genre)
 };
 
-Cinema.prototype.filterByYear = function (cinema, year) {
+Cinema.prototype.someByYear = function (cinema, year) {
   return cinema.films.some((film) => film.year == year);
 };
 
@@ -38,4 +35,15 @@ Cinema.prototype.runtimeOfAllFilms = function (cinema) {
   }, 0);
   return runtimeTotal
 };
+
+Cinema.prototype.filterByYear = function (cinema, year) {
+  return cinema.filterByProperty(cinema, "year", year)
+}
+
+Cinema.prototype.filterByProperty = function (cinema, property, desiredValue) {
+  const filmsOfProperty = cinema.films.filter((film) => {
+    return film[property] == desiredValue;
+  });
+  return filmsOfProperty;
+}
 module.exports = Cinema;
