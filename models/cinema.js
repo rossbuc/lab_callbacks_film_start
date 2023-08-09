@@ -23,6 +23,12 @@ Cinema.prototype.filterByGenre = function (cinema, genre) {
 };
 
 Cinema.prototype.filterByYear = function (cinema, year) {
-  return cinema.films.some((film) => film.year == year)
-}
+  return cinema.films.some((film) => film.year == year);
+};
+
+Cinema.prototype.checkEveryFilmLength = function (cinema, length) {
+  return cinema.films.every((film) => {
+    film.length >= length;
+  });
+};
 module.exports = Cinema;
